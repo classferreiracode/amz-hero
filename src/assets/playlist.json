@@ -1,0 +1,56 @@
+{
+  "tracks": [
+    {
+      "id": "1",
+      "title": "TEMA AMZ Hero - A Jornada dos 17 Anos",
+      "file": "/assets/audio/AMZ-Hero_-_A-Jornada-dos-17-Anos.mp3",
+      "credits": [
+        {
+          "name": "EchoingMelody3747",
+          "role": "Composer",
+          "link": "https://suno.com/song/e7e93db2-20a4-4013-b4fd-78cd2f3a6332",
+          "source": "SUNO"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "8bit video game music",
+      "file": "/assets/audio/intro.mp3",
+      "credits": [
+        {
+          "name": "Arthur Hale",
+          "role": "Composer",
+          "link": "https://pixabay.com/pt/music/jogos-de-video-8bit-video-game-music-289970/",
+          "source": "Pixabay"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Cruising Down 8bit Lane",
+      "file": "/assets/audio/cruising-down-8bit-lane-159615.mp3",
+      "credits": [
+        {
+          "name": "Monument Music",
+          "role": "Composer",
+          "link": "https://pixabay.com/pt/music/jogos-de-video-cruising-down-8bit-lane-159615/",
+          "source": "Pixabay"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Retro 8bit happy videogame music",
+      "file": "/assets/audio/retro-8bit-happy-videogame-music-246631.mp3",
+      "credits": [
+        {
+          "name": "NiKneT Art",
+          "role": "Composer",
+          "link": "https://pixabay.com/pt/music/jogos-de-video-retro-8bit-happy-videogame-music-246631/",
+          "source": "Pixabay"
+        }
+      ]
+    }
+  ]
+}

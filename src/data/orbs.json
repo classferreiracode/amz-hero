@@ -1,0 +1,19 @@
+{
+  "orbs": [
+    {
+      "nome": "Orbe da Eloquência",
+      "descricao": "Representa a comunicação eficaz, a clareza na transmissão de ideias e a capacidade de envolver tanto clientes quanto a equipe.",
+      "sprite": "eloquencia.png"
+    },
+    {
+      "nome": "Orbe da Imaginação",
+      "descricao": "Simboliza a criatividade e inovação, incentivando o pensamento fora da caixa para criações impactantes.",
+      "sprite": "imaginacao.png"
+    },
+    {
+      "nome": "Orbe da Sinergia",
+      "descricao": "Reflete a adaptabilidade, a colaboração e o trabalho em equipe, essenciais para enfrentar desafios dinâmicos.",
+      "sprite": "sinergia.png"
+    }
+  ]
+}

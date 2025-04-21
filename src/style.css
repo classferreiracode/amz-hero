@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --default, dark --default, synthwave;
+}
+
+* {
+    font-family: 'Press Start 2P', cursive;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    line-height: 1.5;
+}
+
+.font-press {
+    font-family: 'Press Start 2P', monospace;
+}
+
+.font-sans {
+    font-family: 'sans-serif' !important;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}

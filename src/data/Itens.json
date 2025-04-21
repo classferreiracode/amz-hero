@@ -1,0 +1,144 @@
+{
+  "itens": [
+    {
+      "nome": "Notebook antigo",
+      "tipo": "escritório",
+      "utilidade": "baixo",
+      "raridade": "comum",
+      "descricao": "Um notebook lento, mas ainda funcional para tarefas básicas."
+    },
+    {
+      "nome": "Caneca motivacional",
+      "tipo": "agência",
+      "utilidade": "médio",
+      "raridade": "comum",
+      "descricao": "Traz frases motivacionais que aumentam o ânimo do dia a dia."
+    },
+    {
+      "nome": "Mouse gamer",
+      "tipo": "escritório",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Aumenta a precisão e velocidade em atividades digitais."
+    },
+    {
+      "nome": "Post-it usado",
+      "tipo": "escritório",
+      "utilidade": "baixo",
+      "raridade": "comum",
+      "descricao": "Tem anotações confusas que podem ou não ser úteis."
+    },
+    {
+      "nome": "Fone Bluetooth quebrado",
+      "tipo": "casa",
+      "utilidade": "nula",
+      "raridade": "comum",
+      "descricao": "Era bom, mas só funciona de vez em quando... com sorte."
+    },
+    {
+      "nome": "Livro de criatividade",
+      "tipo": "agência",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Estimula novas ideias e libera poderes criativos."
+    },
+    {
+      "nome": "Quadro com frase de impacto",
+      "tipo": "casa",
+      "utilidade": "médio",
+      "raridade": "incomum",
+      "descricao": "Inspira motivação diária com frases épicas."
+    },
+    {
+      "nome": "Cabo USB danificado",
+      "tipo": "escritório",
+      "utilidade": "nula",
+      "raridade": "comum",
+      "descricao": "Serve apenas para enrolar e fingir que funciona."
+    },
+    {
+      "nome": "Caderneta de ideias",
+      "tipo": "agência",
+      "utilidade": "médio",
+      "raridade": "incomum",
+      "descricao": "Ajuda a organizar pensamentos e criar conteúdos únicos."
+    },
+    {
+      "nome": "Caneta de 5 cores",
+      "tipo": "escritório",
+      "utilidade": "médio",
+      "raridade": "comum",
+      "descricao": "Útil para destacar pensamentos importantes."
+    },
+    {
+      "nome": "Power bank",
+      "tipo": "sobrevivência",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Essencial para não ficar sem energia em momento crítico."
+    },
+    {
+      "nome": "Manual de processos",
+      "tipo": "agência",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Garante que você nunca se perca nos fluxos da AMZ."
+    },
+    {
+      "nome": "Chaveiro AMZ Hero",
+      "tipo": "agência",
+      "utilidade": "cosmético",
+      "raridade": "especial",
+      "descricao": "Representa seu vínculo com a jornada do herói AMZ."
+    },
+    {
+      "nome": "Lanche vencido",
+      "tipo": "casa",
+      "utilidade": "negativa",
+      "raridade": "comum",
+      "descricao": "Pode causar efeitos colaterais duvidosos."
+    },
+    {
+      "nome": "Camiseta AMZ",
+      "tipo": "casa",
+      "utilidade": "médio",
+      "raridade": "incomum",
+      "descricao": "Estilosa e confortável, ideal para vestir a cultura AMZ."
+    },
+    {
+      "nome": "Controle remoto sem pilha",
+      "tipo": "casa",
+      "utilidade": "nula",
+      "raridade": "comum",
+      "descricao": "Inútil até que você encontre pilhas."
+    },
+    {
+      "nome": "Planner do futuro",
+      "tipo": "agência",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Ajuda a organizar projetos e prever tendências."
+    },
+    {
+      "nome": "Óculos de luz azul",
+      "tipo": "escritório",
+      "utilidade": "alto",
+      "raridade": "raro",
+      "descricao": "Reduz fadiga visual e aumenta o foco digital."
+    },
+    {
+      "nome": "Botton da revolução criativa",
+      "tipo": "agência",
+      "utilidade": "cosmético",
+      "raridade": "incomum",
+      "descricao": "Símbolo de quem pensa diferente."
+    },
+    {
+      "nome": "Mini planta de mesa",
+      "tipo": "escritório",
+      "utilidade": "médio",
+      "raridade": "incomum",
+      "descricao": "Traz paz e melhora a estética do ambiente."
+    }
+  ]
+}

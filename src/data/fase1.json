@@ -1,0 +1,134 @@
+`Olá, ${getGameState().player.name}. Bem-vindo a Marketopolis.`,
+`Você está prestes a embarcar em uma jornada épica.`,
+`Eu sou Bruno, o fundador da Torre AMZ e guardião da Sabedoria de Marketopolis.`,
+"Essa torre nasceu de uma ideia ousada e muita vontade de transformar a cidade.",
+"Durante 17 anos enfrentamos desafios, crescemos e inovamos com coragem.",
+"Nascemos em outra década, seguindo os passos dos grandes ancestrais.",
+"Hoje crescemos, evoluímos e nos diferenciamos.",
+"Nos tornamos referência, atendendo grandes povos",
+"E queremos continuar sendo uma inspiração para Marketopolis.",
+"Guiados pela gentileza, trabalho sério e respeito ao próximo.",
+{
+  "fase": "Fase 1 - A Origem do Herolift",
+  "npc": "Bruno",
+  "dialogos": [
+    {
+      "evento": "entrada_player",
+      "falas": [
+        {
+          "npc": "Bruno",
+          "fala": "Ah... Então você finalmente chegou. Estava te esperando."
+        },
+        {
+          "player_opcoes": [
+            "Quem é você? Onde estou?",
+            "Isso aqui é uma entrevista?",
+            "E esse cheiro de café queimado?"
+          ]
+        },
+        {
+          "npc": "Bruno",
+          "fala": "Bem-vindo(a) a Marketopolis. Sou Bruno. Fundador da AMZ. CEO. Ex-diretor de criação. Ex-estagiário. Ex-tudo. E isso não é uma entrevista. É o início de algo muito maior."
+        },
+        {
+          "player_opcoes": [
+            "Maior tipo... uma promoção?",
+            "Tipo startup que vira unicórnio?"
+          ]
+        },
+        {
+          "npc": "Bruno",
+          "fala": "Maior tipo... Heróis. Missões. Propósito. Propaganda com alma. Algo que nem todo briefing entende."
+        }
+      ]
+    },
+    {
+      "evento": "historia_amz",
+      "falas": [
+        {
+          "npc": "Bruno",
+          "fala": "A AMZ nasceu em outra década, seguindo os passos dos grandes ancestrais."
+        }
+      ]
+    },
+    {
+      "evento": "entrega_herolift",
+      "falas": [
+        {
+          "npc": "Bruno",
+          "fala": "Esse é o HeroLift. Um sistema sagrado que conecta você a tudo que a AMZ representa: ideias, missões, música e propósito. Use com sabedoria. Ou com coragem. Ou com café."
+        }
+      ]
+    },
+    {
+      "evento": "quiz",
+      "falas": [
+        {
+          "npc": "Bruno",
+          "fala": "Mas antes... preciso saber se você é digno. Não se preocupe, é só um pequeno quiz."
+        },
+        {
+          "quiz_perguntas": [
+            {
+              "pergunta": "Se o prazo é amanhã e o job ainda não está aprovado, você...",
+              "opcoes": [
+                "A) Pede mais prazo",
+                "B) Muda tudo de novo",
+                "C) Entra no modo guerra e resolve"
+              ],
+              "correta": "C"
+            },
+            {
+              "pergunta": "O que é mais importante?",
+              "opcoes": ["A) Engajamento", "B) Propósito", "C) Um bom café"],
+              "correta": "B"
+            },
+            {
+              "pergunta": "O que significa KPI?",
+              "opcoes": [
+                "A) Key Performance Indicator",
+                "B) Ketchup, Pizza e Inovação",
+                "C) Kill Potential Interface"
+              ],
+              "correta": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "evento": "quiz_final_surpresa",
+      "condicao": "player_acertou_todas",
+      "falas": [
+        {
+          "npc": "Bruno",
+          "fala": "Uau... Você acertou todas. Isso não é comum. Antes de te entregar isso... preciso saber se você está realmente pronto."
+        },
+        {
+          "pergunta_surpresa": {
+            "pergunta": "O que torna alguém verdadeiramente criativo?",
+            "opcoes": [
+              "A) A capacidade de copiar com estilo",
+              "B) A coragem de errar e tentar de novo",
+              "C) A busca incessante pela aprovação alheia"
+            ],
+            "correta": "B"
+          }
+        },
+        {
+          "resultado": {
+            "acertou": {
+              "npc": "Bruno",
+              "fala": "Correto. A criatividade nasce do caos, da tentativa e do erro. Você merece isso...",
+              "recompensa": "Orb Sagrada Aleatória"
+            },
+            "errou": {
+              "npc": "Bruno",
+              "fala": "Interessante escolha... mas talvez ainda falte algo. Você está no caminho certo."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

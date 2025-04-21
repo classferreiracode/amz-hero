@@ -1,0 +1,80 @@
+{
+  "fase": "Fase 3 - Sala da DEVSquad",
+  "npc": "Marcos",
+  "dialogos": [
+    {
+      "evento": "entrada_player",
+      "falas": [
+        {
+          "npc": "Marcos",
+          "fala": "Você chegou até aqui... isso já diz muito. Eu sou Marcos, CTO da AMZ e líder da DEVSquad."
+        },
+        {
+          "player_opcoes": [
+            {
+              "resposta": "CTO... então você é o cara do código?",
+              "npc_retorno": "Sou o cara das ideias que viram código. Mas aqui ninguém faz nada sozinho."
+            },
+            {
+              "resposta": "Essa sala parece uma nave espacial.",
+              "npc_retorno": "Às vezes parece mesmo. Só que nossa missão é entregar resultado, não explorar galáxias. Ainda."
+            },
+            {
+              "resposta": "O que é essa DEVSquad aí?",
+              "npc_retorno": "É o coração digital da AMZ. Front, back, devops, gestão... tudo pulsando junto."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "evento": "contexto_dev",
+      "falas": [
+        {
+          "npc": "Marcos",
+          "fala": "Aqui, a gente constrói as ideias. Literalmente. Transformamos criatividade em produto, dados em decisão, e bugs... em aprendizado."
+        },
+        {
+          "npc": "Marcos",
+          "fala": "Mas isso exige algo além de técnica. Exige raciocínio. Capacidade de ver o invisível. Vamos testar isso em você."
+        }
+      ]
+    },
+    {
+      "evento": "desafio_logico",
+      "descricao": "Marcos apresenta um enigma que exige lógica e pensamento lateral.",
+      "pergunta": "Três desenvolvedores precisam trabalhar juntos num projeto. Um sempre diz a verdade, um sempre mente, e um responde aleatoriamente. Você faz a seguinte pergunta para os três: 'Se eu perguntasse se você é o mentiroso, o que você responderia?'. Como identificar o que diz a verdade?",
+      "opcoes": [
+        "O que disser 'sim' está dizendo a verdade.",
+        "O que disser 'não' é o mentiroso.",
+        "Todos dirão o mesmo, então não dá pra saber.",
+        "O que disser o oposto da pergunta está dizendo a verdade."
+      ],
+      "resposta_correta": "O que disser 'sim' está dizendo a verdade.",
+      "tentativas": 2,
+      "resultados": {
+        "acertou": {
+          "npc": "Marcos",
+          "fala": "Boa! Você entendeu a lógica por trás da lógica. Isso vai te levar longe. Tome — a última Orb é sua.",
+          "recompensas": ["Orb Sagrada"]
+        },
+        "errou": {
+          "npc": "Marcos",
+          "fala": "Quase lá... Respira e pensa fora da caixa. Você tem mais uma chance."
+        },
+        "falhou_todas": {
+          "npc": "Marcos",
+          "fala": "Nem todo bug se resolve na primeira tentativa. Reflita e volte. O desafio estará aqui.",
+          "recompensas": []
+        }
+      }
+    },
+    {
+      "evento": "fim_fase",
+      "fala": {
+        "npc": "Marcos",
+        "fala": "Você completou o ciclo. Três orbs, três caminhos. Agora siga até o RH. Sua jornada está prestes a mudar de fase..."
+      }
+    }
+  ]
+}

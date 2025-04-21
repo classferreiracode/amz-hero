@@ -1,0 +1,12 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "AMZ",
+      "sprite": "sprites/amz_hero.png",
+      "time_alive": 6205, // 17 anos em dias (aproximado)
+      "role": "Fundador",
+      "team": "Liderança"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "fase": "Fase Final - O RH e a Jornada Completa",
+  "npc": "Ana",
+  "dialogos": [
+    {
+      "evento": "entrada_rh",
+      "falas": [
+        {
+          "npc": "Ana",
+          "fala": "Uau... você tem as três orbs. Isso é incrível! Sabe o que isso significa, né?"
+        },
+        {
+          "npc": "Ana",
+          "fala": "Você foi o escolhido. Alguém que tem o equilíbrio entre conhecimento, criatividade e lógica. Bem-vindo ao time AMZ."
+        },
+        {
+          "npc": "Ana",
+          "fala": "Essas orbs representam algo maior... são as virtudes que moldaram a AMZ nesses 17 anos. E agora, estão com você."
+        }
+      ]
+    },
+    {
+      "evento": "reflexao_amz",
+      "falas": [
+        {
+          "npc": "Ana",
+          "fala": "A AMZ não nasceu do nada. Foram anos de tentativa, inovação, superação e principalmente: pessoas incríveis, como você."
+        },
+        {
+          "npc": "Ana",
+          "fala": "Hoje comemoramos 17 anos de história. Mas o futuro... começa agora, com a sua chegada."
+        }
+      ]
+    },
+    {
+      "evento": "dinamica_final",
+      "descricao": "Ana propõe uma pergunta de encerramento que define o final do jogo.",
+      "pergunta": "O que você acredita ser mais importante para transformar o mundo ao seu redor?",
+      "opcoes": [
+        {
+          "resposta": "Conhecimento técnico e habilidade.",
+          "npc_retorno": "Importante, mas sem propósito... perde a direção.",
+          "final": "logo_normal"
+        },
+        {
+          "resposta": "Criatividade e inovação constante.",
+          "npc_retorno": "Essencial, mas se não for compartilhada, se perde.",
+          "final": "logo_normal"
+        },
+        {
+          "resposta": "Empatia, propósito e colaboração.",
+          "npc_retorno": "Exatamente! É isso que move a AMZ. E é isso que vai nos levar ainda mais longe.",
+          "final": "logo_17anos"
+        }
+      ]
+    },
+    {
+      "evento": "encerramento",
+      "fala": {
+        "npc": "Ana",
+        "fala": "Obrigada por trilhar essa jornada. Agora você é parte da nossa história. Seja bem-vindo à AMZ."
+      }
+    },
+    {
+      "evento": "final",
+      "tipos_finais": {
+        "logo_normal": {
+          "titulo": "Fim da Jornada",
+          "descricao": "Você completou sua jornada e agora faz parte da AMZ.",
+          "logo": "logo_amz.png"
+        },
+        "logo_17anos": {
+          "titulo": "Final Comemorativo - 17 Anos",
+          "descricao": "Você escolheu os valores que nos trouxeram até aqui. Bem-vindo ao futuro da AMZ.",
+          "logo": "logo_amz_17anos.png"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "combos": [
+    {
+      "habilidade": "Criatividade Infinita",
+      "item": "Livro de criatividade",
+      "efeito": "Reduz o tempo de cooldown de ideias em 50%"
+    },
+    {
+      "habilidade": "Visão Estratégica",
+      "item": "Planner do futuro",
+      "efeito": "Permite prever decisões de NPCs antes da escolha"
+    },
+    {
+      "habilidade": "Atendimento 10/10",
+      "item": "Caneca motivacional",
+      "efeito": "Aumenta o carisma em interações com clientes"
+    },
+    {
+      "habilidade": "Foco Absoluto",
+      "item": "Óculos de luz azul",
+      "efeito": "Dobra a duração de buffs mentais"
+    },
+    {
+      "habilidade": "Redação Rápida",
+      "item": "Caneta de 5 cores",
+      "efeito": "Reduz o tempo de escrita de conteúdo em 70%"
+    },
+    {
+      "habilidade": "Revisão de Milhões",
+      "item": "Manual de processos",
+      "efeito": "Reduz erros em decisões estratégicas"
+    },
+    {
+      "habilidade": "Poder da Narrativa",
+      "item": "Caderneta de ideias",
+      "efeito": "Permite recontar histórias com bônus de empatia"
+    },
+    {
+      "habilidade": "Conexão com o Cliente",
+      "item": "Botton da revolução criativa",
+      "efeito": "Aumenta a fidelidade dos NPCs parceiros"
+    }
+  ]
+}

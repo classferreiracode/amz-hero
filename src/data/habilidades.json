@@ -1,0 +1,304 @@
+{
+  "habilidades": [
+    {
+      "nome": "Criatividade Infinita",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Permite gerar novas ideias com facilidade, sem bloqueios criativos."
+    },
+    {
+      "nome": "Foco Absoluto",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Capacidade de manter concentração total, mesmo em ambientes caóticos."
+    },
+    {
+      "nome": "Redação Rápida",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Escreve textos com rapidez e clareza, ideal para demandas urgentes."
+    },
+    {
+      "nome": "Revisão de Milhões",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Enxerga até os erros mais ocultos em qualquer conteúdo."
+    },
+    {
+      "nome": "Visão Estratégica",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Enxerga o impacto de decisões futuras com precisão."
+    },
+    {
+      "nome": "Domínio de Pitch",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Sabe apresentar ideias de forma irresistível e objetiva."
+    },
+    {
+      "nome": "Organização Extrema",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Nunca perde prazos ou arquivos. Tudo está em ordem."
+    },
+    {
+      "nome": "Conexão com o Cliente",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Cria empatia instantânea com qualquer cliente ou usuário."
+    },
+    {
+      "nome": "Narrativa Persuasiva",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Transforma qualquer história comum em algo memorável."
+    },
+    {
+      "nome": "Estilo Visual Único",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Cria peças visuais com identidade própria e impacto."
+    },
+    {
+      "nome": "Análise de Dados",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Interpreta relatórios e métricas com precisão cirúrgica."
+    },
+    {
+      "nome": "Planejamento de Mídia",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Distribui campanhas com sabedoria e retorno garantido."
+    },
+    {
+      "nome": "Briefing Master",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Nunca deixa uma informação importante passar despercebida."
+    },
+    {
+      "nome": "Raciocínio Lógico",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Resolve problemas complexos com facilidade."
+    },
+    {
+      "nome": "Empatia Colaborativa",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Sabe ouvir e trabalhar bem com qualquer tipo de pessoa."
+    },
+    {
+      "nome": "Multitarefa Fluida",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Realiza várias atividades ao mesmo tempo sem perder a qualidade."
+    },
+    {
+      "nome": "Criador de Memes",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Cria memes virais com potencial de engajamento absurdo."
+    },
+    {
+      "nome": "Atendimento 10/10",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Resolve qualquer situação com simpatia e eficiência."
+    },
+    {
+      "nome": "Dom da Comunicação",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Fala, escreve e expressa ideias com maestria."
+    },
+    {
+      "nome": "Detetive de Briefing",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Descobre o que o cliente quis dizer mesmo sem ele saber explicar."
+    },
+    {
+      "nome": "Sentido de Urgência",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Nunca perde um deadline. Nunca mesmo."
+    },
+    {
+      "nome": "Coragem para Feedback",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Recebe e oferece feedbacks construtivos sem drama."
+    },
+    {
+      "nome": "Olho de Designer",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Identifica desalinhamentos de pixels a quilômetros de distância."
+    },
+    {
+      "nome": "Mente Curiosa",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Está sempre buscando aprender algo novo."
+    },
+    {
+      "nome": "Criador de Caos",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "Sempre causa confusão nos fluxos e nos grupos de trabalho."
+    },
+    {
+      "nome": "Rei das Planilhas",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Monta dashboards incríveis com fórmulas místicas."
+    },
+    {
+      "nome": "Espírito Colaborativo",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Ajudar o time é sempre prioridade."
+    },
+    {
+      "nome": "Inspiração Repentina",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Tem ideias geniais nos momentos mais improváveis."
+    },
+    {
+      "nome": "Desorganização Criativa",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "As ideias fluem, mas ninguém entende sua lógica."
+    },
+    {
+      "nome": "Especialista em PowerPoint",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Apresentações lindas e eficientes em tempo recorde."
+    },
+    {
+      "nome": "Tirador de Print Profissional",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "Nunca perde um momento... mesmo que irrelevante."
+    },
+    {
+      "nome": "Desviador de Briefings",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "Faz tudo, menos o que foi solicitado."
+    },
+    {
+      "nome": "Consultor de Café",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "Sabe tudo sobre café, mas não entrega os jobs."
+    },
+    {
+      "nome": "Hack da Comunicação",
+      "tipo": "surpresa",
+      "raridade": "lendária",
+      "descricao": "Com um olhar, convence qualquer um a dizer sim."
+    },
+    {
+      "nome": "Mentor Espiritual do Branding",
+      "tipo": "surpresa",
+      "raridade": "lendária",
+      "descricao": "Conecta marcas com suas almas perdidas."
+    },
+    {
+      "nome": "Edição Dimensional",
+      "tipo": "surpresa",
+      "raridade": "lendária",
+      "descricao": "Cria vídeos que transcendem o tempo-espaço."
+    },
+    {
+      "nome": "Criador de Realidades",
+      "tipo": "surpresa",
+      "raridade": "lendária",
+      "descricao": "Consegue materializar campanhas e ideias no mundo real."
+    },
+    {
+      "nome": "Escuta Ativa",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Sabe ouvir com atenção e responder com empatia."
+    },
+    {
+      "nome": "Domínio do Branding",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Constrói marcas fortes com propósito."
+    },
+    {
+      "nome": "Imersão Total",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Se conecta 100% com qualquer projeto."
+    },
+    {
+      "nome": "Consistência Criativa",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Cria conteúdos diferentes, mas com a mesma essência."
+    },
+    {
+      "nome": "Lógica de UX",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Sabe exatamente o que o usuário precisa."
+    },
+    {
+      "nome": "Mestre dos Relatórios",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Gera relatórios claros e objetivos que encantam o cliente."
+    },
+    {
+      "nome": "Caçador de Tendências",
+      "tipo": "útil",
+      "raridade": "rara",
+      "descricao": "Prevê o que vai bombar antes de virar modinha."
+    },
+    {
+      "nome": "Influencer Interno",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Engaja o time como ninguém nos bastidores."
+    },
+    {
+      "nome": "Troll do Slack",
+      "tipo": "inútil",
+      "raridade": "comum",
+      "descricao": "Especialista em GIFs fora de hora."
+    },
+    {
+      "nome": "Designer de Conceito",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Transforma uma ideia em uma obra visual conceitual e poderosa."
+    },
+    {
+      "nome": "Redator Sincero",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Fala a verdade com estilo."
+    },
+    {
+      "nome": "Líder Invisível",
+      "tipo": "útil",
+      "raridade": "incomum",
+      "descricao": "Comanda sem precisar aparecer."
+    },
+    {
+      "nome": "Executor de Ideias",
+      "tipo": "útil",
+      "raridade": "comum",
+      "descricao": "Entrega sempre. Nem que seja na força da cafeína."
+    }
+  ]
+}

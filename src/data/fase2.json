@@ -1,0 +1,113 @@
+{
+  "fase": "Fase 2 - Sala de Criação",
+  "npc": "Júlio",
+  "dialogos": [
+    {
+      "evento": "entrada_player",
+      "falas": [
+        {
+          "npc": "Júlio",
+          "fala": "Você deve ser o novo herói criativo. Eu sou Júlio — sócio, COO e sobrevivente de incontáveis brainstorms."
+        },
+        {
+          "player_opcoes": [
+            {
+              "resposta": "COO significa o quê mesmo?",
+              "npc_retorno": "Chief Operating Officer. Em outras palavras, o cara que faz a mágica continuar mesmo quando tudo dá errado."
+            },
+            {
+              "resposta": "Você parece bem calmo pra alguém rodeado de caos...",
+              "npc_retorno": "Calma é treino. Caos é rotina. Aqui, cada centímetro de bagunça é uma ideia em transição."
+            },
+            {
+              "resposta": "Isso aqui é um templo ou um campo de batalha?",
+              "npc_retorno": "Ambos. A criatividade é sagrada e brutal ao mesmo tempo. Bem-vindo à zona de guerra iluminada por LED."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "evento": "sobre_criatividade",
+      "falas": [
+        {
+          "npc": "Júlio",
+          "fala": "Criação, design, texto, atendimento, revisão... cada parte tem um papel vital na engrenagem da AMZ. Você precisa entender isso se quiser avançar."
+        },
+        {
+          "player_opcoes": [
+            {
+              "resposta": "Então me ensina.",
+              "npc_retorno": "Boa resposta. O conhecimento é a arma mais valiosa aqui dentro."
+            },
+            {
+              "resposta": "Acho que já saquei como funciona.",
+              "npc_retorno": "Confiança é bom. Mas vamos ver se ela se sustenta sob pressão criativa."
+            },
+            {
+              "resposta": "Dá pra pular essa parte?",
+              "npc_retorno": "Criatividade não se pula. Ela se vive. Respira fundo. Lá vem o enigma."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "evento": "enigma",
+      "falas": [
+        {
+          "npc": "Júlio",
+          "fala": "Cada função aqui tem seu papel. Mas será que você consegue identificar o que cada uma realmente faz?"
+        },
+        {
+          "npc": "Júlio",
+          "fala": "Responda corretamente e uma nova habilidade despertará em você... junto de algo ainda mais raro."
+        }
+      ],
+      "tentativas": 3,
+      "enigmas": [
+        {
+          "pergunta": "Qual dessas áreas transforma um conceito em algo visual que comunica sem dizer uma palavra?",
+          "opcoes": ["Redação", "Designer", "Revisão", "Atendimento"],
+          "correta": "Designer"
+        },
+        {
+          "pergunta": "Quem é o guardião da clareza, responsável por garantir que nada passe com erro?",
+          "opcoes": ["Designer", "Revisão", "Atendimento", "Criação"],
+          "correta": "Revisão"
+        },
+        {
+          "pergunta": "Qual setor traduz emoções em palavras, criando a alma da campanha?",
+          "opcoes": ["Designer", "Criação", "Redação", "Atendimento"],
+          "correta": "Redação"
+        },
+        {
+          "pergunta": "Quem entende o cliente, traduz o briefing e acalma crises como um diplomata criativo?",
+          "opcoes": ["Revisão", "Designer", "Atendimento", "Redação"],
+          "correta": "Atendimento"
+        },
+        {
+          "pergunta": "Qual função conecta todas as outras, costura ideias, organiza talentos e constrói impacto?",
+          "opcoes": ["Designer", "Criação", "COO", "Redação"],
+          "correta": "Criação"
+        }
+      ],
+      "resultados": {
+        "acertou": {
+          "npc": "Júlio",
+          "fala": "Você entendeu. Não basta ter talento, é preciso saber como tudo se conecta. Tome isso — vai precisar no que vem a seguir.",
+          "recompensas": ["Habilidade Aleatória", "Orb Sagrada"]
+        },
+        "errou": {
+          "npc": "Júlio",
+          "fala": "Não é bem isso... Tente novamente. Pensar diferente é parte do processo."
+        },
+        "falhou_todas": {
+          "npc": "Júlio",
+          "fala": "A criatividade exige persistência. Volte depois de observar mais. A resposta está ao seu redor.",
+          "recompensas": []
+        }
+      }
+    }
+  ]
+}
