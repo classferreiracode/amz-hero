@@ -7,7 +7,7 @@
     >
 
         <!-- Canvas para renderizar NPC -->
-        <canvas ref="julioCanvas" class="absolute z-10" width="128" height="128" :style="{ left: julio.x + 'px', top: julio.y + 'px',
+        <canvas ref="julioCanvas" class="absolute z-40" width="128" height="128" :style="{ left: julio.x + 'px', top: julio.y + 'px',
         position: 'absolute' }"></canvas>
 
         <!-- Diálogo -->
@@ -30,10 +30,9 @@
         <!-- Quiz -->
         <div
             v-if="dialogState.showQuiz"
-            class="absolute bottom-4 w-full p-4 bg-base-100 border border-primary rounded-lg shadow-lg text-sm font-sans text-left "
+            class="absolute bottom-4 w-full p-4 bg-base-100 border border-primary rounded-lg shadow-lg text-sm font-sans text-left z-50"
         >
             <p class="mb-4 font-bold flex items-center">
-                <QuestionMarkCircleIcon class="w-12 h-12 inline mr-2 text-red-500" />
                 {{ currentQuestion.question }}
             </p>
             <div class="grid gap-2">
@@ -48,9 +47,9 @@
             </div>
         </div>
 
-        <div v-if="getGameState().game.fasesConcluidas[0] === 2" class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 z-50">
-            <button class="btn btn-accent text-white font-press" @click="irParaFase2">
-                Ir para Fase 2
+        <div v-if="getGameState().game.fasesConcluidas[1] === 2" class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 z-50">
+            <button class="btn btn-accent text-white font-press" @click="irParaFase3">
+                Ir para Fase 3
             </button>
         </div>
     </div>
@@ -65,7 +64,6 @@ const router = useRouter()
 const gameArea = ref(null)
 const julioCanvas = ref(null)
 const player = getGameState().player
-
 const dialogState = ref({
     current: 'main', // 'main', 'quiz1', 'quiz2', etc
     index: 0,
@@ -75,148 +73,112 @@ const dialogState = ref({
     status: true
 })
 
+const enableDialog = ref( dialogState.value.status)
+
 const dialogConfig = {
     main: {
         lines: [
-            {'speaker': 'Júlio', 'text': 'Você deve ser o novo herói criativo. Eu sou Júlio — sócio, COO e sobrevivente de incontáveis brainstorms.'},
-            {'speaker': `${player.name}`, 'text': 'Quem é você? Onde estou?'},
-            {'speaker': `${player.name}`, 'text': 'Isso aqui é uma entrevista?'},
-            {'speaker': `${player.name}`, 'text': 'E esse cheiro de Café queimado?'},
-            {'speaker': 'O Fundador', 'text': 'Sou Bruno. Fundador da AMZ.'},
-            {'speaker': 'Bruno - O Fundador', 'text':
-                    'Antes de tudo isso, ajudei a criar magia na Disney e contei histórias em outra agência de comunicação.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Mas nada se compara ao que estamos construindo aqui.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'E isso? Não é uma entrevista — é o início de algo muito maior.'},
-            {'speaker': `${player.name}`, 'text': 'Maior tipo... uma promoção?'},
-            {'speaker': `${player.name}`, 'text': 'Tipo startup que vira unicórnio?'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Maior tipo... Heróis. Missões. Propósito. Propaganda com alma. Algo que nem todo briefing entende.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Afinal ser ruim é fácil, difícil é ser bom!'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'A AMZ nasceu no caos, sim — mas também de um ato de coragem.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'No dia do meu aniversário, pedi demissão da agência onde trabalhava.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Senti, no fundo, que podia fazer diferente. Melhor!'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'E assim, a AMZ nasceu.'},
-            {'speaker': 'Bruno - O Fundador', 'text':
-                    'Criada por idealistas que acreditavam que criatividade era mais do que apenas entregar um job aprovado.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Era sobre fazer sentido. E fazer história.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Nós enfrentamos o algoritmo. Desafiamos o orçamento.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Transformamos brainstorms em batalhas, deadlines em lendas.'},
-            {'speaker': `${player.name}`, 'text': 'E o que isso tem a ver comigo?'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Tudo...'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Porque agora, a agência precisa de um novo tipo de criativo. Um herói. E pra isso... você vai precisar disso aqui.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Esse é o HeroLift'},
-            {'speaker': `${player.name}`, 'text': 'HeroLift???'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Um sistema sagrado que conecta você a tudo que a AMZ representa: ideias, missões, música e propósito'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Use com sabedoria. Ou com coragem. Ou com café.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Mas antes...'},
-            {'speaker': `${player.name}`, 'text': 'O que???'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Preciso saber se você é digno.'},
-            {'speaker': `${player.name}`, 'text': 'Como assim???'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'É só um... pequeno quiz.'},
+            {'speaker': 'Arquiteto da Criação', 'text':
+                    'Você deve ser o novo herói criativo. Eu sou Júlio, COO da AMZ e sobrevivente de incontáveis brainstorms.'},
+            {'speaker': `${player.name}`, 'text': 'COO significa o quê mesmo?'},
+            {'speaker': `${player.name}`, 'text': 'Você parece bem calmo pra alguém rodeado de caos...'},
+            {'speaker': `${player.name}`, 'text': 'Isso aqui é um templo ou um campo de batalha?'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Tudo isso. Aqui, a criatividade é caos e ordem ao mesmo tempo.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'É onde ideias tomam forma... ou viram lixo antes do deadline.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', text: 'Criação, design, texto, atendimento, revisão... '},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Cada parte tem um papel vital na engrenagem da AMZ.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Você precisa entender isso se quiser avançar.'},
+            {'speaker': `${player.name}`, 'text': 'Dá pra pular essa parte?'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Não dá. Criatividade não se pula. Ela se vive. E agora... um desafio.'},
         ],
         onComplete: () => {
             updateGameState({
                 "player": { "vidas": 3 }
             })
-            addConquista('❤️ Agora sim dá pra apanhar com estilo: Ganhou 3 Corações!')
             window.dispatchEvent(new Event('update-vidas'))
-            showToast('🏆 Conquista!', '❤️ Agora sim dá pra apanhar com estilo: Ganhou 3 Corações!', 'conquista')
             startQuiz('quiz1')
         }
     },
     dialog2: {
         lines: [
-            {'speaker': 'Bruno - O Fundador', 'text': 'Você tem o espírito. Não perfeito. Mas é assim que começamos todos.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'O HeroLift agora é seu. Use a tecla E para abri-lo.'},
-            {'speaker': `${player.name}`, 'text': 'Incrível!'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Vou adicionar sua primeira tarefa. Use a tecla "E" para ver.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Agora, vá até a Sala de Criação, a próxima fase começa lá!'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Boa sorte!'}
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Show! Você entendeu.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Criação não é só estética ou técnica. '},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'É sobre entender o papel de cada um e saber colaborar'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Agora, vá até a Sala da DEVSquad.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Lá você vai conhecer Marcos, nosso CTO.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Ele vai testar algo mais... lógico.'}
         ],
         onComplete: () => {
+            const gameState = getGameState()
+            const fasesConcluidas = gameState.game.fasesConcluidas || []
+
             updateGameState({
                 "player": {
-                    "hasHeroLift": true,
+                    "orbes": gameState.player.orbes + 1
                 },
                 "game": {
-                    "fasesConcluidas": [1],
-                    "hasHeroLift": true,
-                    "missaoAtual": "Vá para a Sala de Criação",
+                    "fasesConcluidas": [...fasesConcluidas, 2],
+                    "missaoAtual": "Vá para a Sala da DEVSquad"
                 }
             })
-            addConquista('📲 Sistema Liberado!')
-            showToast('🏆 Conquista!', '📲 Sistema Liberado! ...So não deixa a TI saber!', 'conquista')
+
+            addItemToInventory('Orbe da Criação')
+            addConquista('A Criação do Arquiteto')
+            showToast('🧿 Orbe Adquirida! - ', 'A Criação do Arquiteto', 'conquista')
+            window.dispatchEvent(new Event('update-missao'))
+            addConquista('🌱 A Criação')
+            showToast('🏆 Conquista!', '🌱 A Criação', 'conquista')
             dialogState.value.status = false
         }
     },
     dialog3: {
         lines: [
-            {'speaker': 'Bruno - O Fundador', 'text': 'Uau... Você acertou todas.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Isso não é comum. Normalmente o pessoal trava na do brainstorm.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Antes de te entregar isso... preciso saber se você está realmente pronto'},
-            {'speaker': `${player.name}`, 'text': 'Pronto?! para o que?'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Essa pergunta não é sobre marketing'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'É sobre você...'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Sobre todos nós.'}
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Hm... não foi dessa vez. Mas errar também é parte do processo criativo.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Volte aqui quando estiver pronto para tentar de novo.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Por ora, vá até a Sala da DEVSquad.'},
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Você ainda tem o que aprender com Marcos.'},
         ],
         onComplete: () => {
-            addConquista('🔭 Foco e Afinco')
-            showToast('🏆 Conquista!', '🔭 Foco e Afinco', 'conquista')
-            startQuiz('quiz2')
+            const gameState = getGameState()
+            const fasesConcluidas = gameState.game.fasesConcluidas || []
+            updateGameState({
+                "game": {
+                    "fasesConcluidas": [...fasesConcluidas, 2],
+                    "missaoAtual": "Vá para a Sala da DEVSquad"
+                }
+            })
+            dialogState.value.status = false
         }
     },
     dialog4: {
         lines: [
-            {'speaker': 'Bruno - O Fundador', 'text': 'Correto. A criatividade nasce do caos, da tentativa e do erro. E da vontade de continuar mesmo quando ninguém entende sua ideia.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Você merece isso..'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Siga para a Sala de Criação. Sua jornada continua...'}
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Não desista... Siga para a Sala da DEVSquad.'}
         ],
         onComplete: () => {
-            updateGameState({
-                "player": {
-                    "hasHeroLift": true
-                },
-                "game": {
-                    "fasesConcluidas": [1],
-                    "missaoAtual": "Vá para a Sala de Criação",
-                }
-            })
-            addItemToInventory('Orbe da Eloquencia ')
-            addConquista('🧿 Orbe Adquirida! - A Eloquencia do Fundador')
-            showToast('🏆 Conquista!', '🧿 Orbe Adquirida! - A Eloquencia do Fundador', 'conquista')
+            window.dispatchEvent(new Event('update-missao'))
             dialogState.value.status = false
         }
     },
     dialog5: {
         lines: [
-            {'speaker': 'Bruno - O Fundador', 'text': 'Interessante escolha... mas talvez ainda falte algo. Você está no caminho certo.'},
-            {'speaker': 'Bruno - O Fundador', 'text': 'Siga para a Sala de Criação. Talvez lá encontre o que falta.'}
+            {'speaker': 'Júlio - Arquiteto da Criação', 'text': 'Pense bem, tente novamente.'}
         ],
         onComplete: () => {
-            updateGameState({
-                "game": {
-                    "fasesConcluidas": [1],
-                    "missaoAtual": "Vá para a Sala de Criação"
-                }
-            })
-            addConquista('🧩 Quase tudo certo')
-            showToast('🏆 Conquista!', '🧩 Quase tudo certo', 'conquista')
-            dialogState.value.status = false
-        }
-    },
-    dialog6: {
-        lines: [
-            {'speaker': 'Bruno - O Fundador', 'text': 'Sua jornada continua... Siga para a Sala de Criação.'}
-        ],
-        onComplete: () => {
-            // updateGameState({
-            //     "game": {
-            //         "fasesConcluidas": [1],
-            //         "missaoAtual": "Vá para a Sala de Criação"
-            //     }
-            // })
-            // addConquista('🧩 Quase tudo certo')
-            // showToast('🏆 Conquista!', '🧩 Quase tudo certo', 'conquista')
-            //startQuiz('quiz2')
+            let num = Math.floor(Math.random() * 4)
+            switch (num) {
+                case 0:
+                    startQuiz('quiz2')
+                    break;
+                case 1:
+                    startQuiz('quiz3')
+                    break;
+                case 2:
+                    startQuiz('quiz4')
+                    break;
+                case 3:
+                    startQuiz('quiz5')
+                    break;
+            }
         }
     },
 }
@@ -225,65 +187,118 @@ const quizConfig = {
     quiz1: {
         questions: [
             {
-                question: "Se o prazo é amanhã e o job ainda não está aprovado, você...",
-                options: ["A) Pede mais prazo", "B) Muda tudo de novo", "C) Entra no modo guerra e resolve"],
-                answer: 2
-            },
-            {
-                question: "O que é mais importante?",
-                options: ["A) Engajamento", "B) Propósito", "C) Um bom Café"],
+                question: "Qual dessas áreas transforma um conceito em algo visual que comunica sem dizer uma palavra?",
+                options: [
+                    "A) Redação",
+                    "B) Designer",
+                    "C) Revisão",
+                    "D) Atendimento"
+                ],
                 answer: 1
-            },
+            }
+        ],
+        onSuccess: () => {
+            if (dialogState.value.questionsAwnsered == 0) {
+                this.onFailure()
+            } else {
+                startDialog('dialog2')
+            }
+        },
+        onFailure: () => {
+            startDialog('dialog5')
+        }
+    },
+    quiz2: {
+        questions: [
             {
-                question: "Qual o verdadeiro significado de um brainstorm?",
-                options: ["A) Uma tempestade de ideias com café no meio", "B) Um momento onde todo mundo fala ao mesmo tempo",
-                    "C) Quando a criatividade se junta com o caos e vira mágica"],
+                question: "Quem é o guardião da clareza, responsável por garantir que nada passe com erro?",
+                options: [
+                    "A) Designer",
+                    "B) Revisão",
+                    "C) Atendimento",
+                    "D) Redação"
+                ],
+                answer: 1
+            }
+        ],
+        onSuccess: () => {
+            if (dialogState.value.questionsAwnsered == 0) {
+                this.onFailure()
+            } else {
+                startDialog('dialog2')
+            }
+        },
+        onFailure: () => {
+            startDialog('dialog5')
+        }
+    },
+    quiz3: {
+        questions: [
+            {
+                question: "Qual setor traduz emoções em palavras, criando a alma da campanha?",
+                options: [
+                    "A) Designer",
+                    "B) Criação",
+                    "C) Redação",
+                    "D) Atendimento"
+                ],
                 answer: 2
             }
         ],
         onSuccess: () => {
             if (dialogState.value.questionsAwnsered == 0) {
                 this.onFailure()
-            }else if (dialogState.value.questionsAwnsered > 0 && dialogState.value.questionsAwnsered < 3) {
+            } else {
                 startDialog('dialog2')
-            }else {
-                ganharXP(150)
-                updateGameStateAndShowToast({
-                    state: {
-                        "player": {"hasHeroLift": true},
-                    },
-                    toast: {
-                        title: "😍 Amazing!",
-                        message: "+150 XP"
-                    }
-                })
-                startDialog('dialog3')
             }
         },
         onFailure: () => {
-            alert('falhou')
+            startDialog('dialog5')
         }
     },
-    quiz2: {
+    quiz4: {
         questions: [
             {
-                question: "O que torna alguém verdadeiramente criativo?",
-                options: ["A)A capacidade de copiar com estilo", "B)A coragem de errar e tentar de novo", "C)A busca incessante pela aprovação alheia"],
+                question: "Quem entende o cliente, traduz o briefing e acalma crises como um diplomata criativo?",
+                options: [
+                    "A) Revisão",
+                    "B) Designer",
+                    "C) Atendimento",
+                    "D) Redação"
+                ],
+                answer: 2
+            }
+        ],
+        onSuccess: () => {
+            if (dialogState.value.questionsAwnsered == 0) {
+                this.onFailure()
+            } else {
+                startDialog('dialog2')
+            }
+        },
+        onFailure: () => {
+            startDialog('dialog5')
+        }
+    },
+    quiz5: {
+        questions: [
+            {
+                question: "Qual função conecta todas as outras, costura ideias, organiza talentos e constrói impacto?",
+                options: [
+                    "A) Designer",
+                    "B) Criação",
+                    "C) COO",
+                    "D) Redação"
+                ],
                 answer: 1
             }
         ],
         onSuccess: () => {
-            ganharXP(150)
-            updateGameStateAndShowToast({
-                state: {
-                    "player": { "hasHeroLift": true },
-                },
-                toast: {
-                    title: "😍 Amazing!",
-                    message: "+150 XP"
-                }
-            })
-            startDialog('dialog4')
+            if (dialogState.value.questionsAwnsered == 0) {
+                this.onFailure()
+            } else {
+                startDialog('dialog2')
+            }
         },
         onFailure: () => {
             startDialog('dialog5')
@@ -291,7 +306,7 @@ const quizConfig = {
     },
 }
 
-function showToast(title, message, type = 'default', duration = 15000) {
+function showToast(title, message, type = 'info', duration = 15000) {
     window.dispatchEvent(new CustomEvent('show-toast', {
         detail: { title, message, type, duration }
     }))
@@ -359,28 +374,20 @@ function handleQuizAnswer(selectedIndex) {
             player: { vidas: novasVidas },
         })
         window.dispatchEvent(new Event('update-vidas'))
+        dialogState.value.showQuiz = false
+        startDialog('dialog5')
 
         if (novasVidas <= 0) {
-            window.dispatchEvent(new CustomEvent('show-toast', {
-                detail: { title: "☠️ Fim das tentativas!", message: "Você ficou sem corações.", type: 'gameover' }
-            }))
-            window.dispatchEvent(new Event('mostrar-game-over'))
-            return
-        }
-
-        window.dispatchEvent(new CustomEvent('show-toast', {
-            detail: { title: "❌", message: "Você perdeu 1 ❤️.", type: 'erro' }
-        }))
-
-        if (dialogState.value.index < quiz.questions.length - 1){
-            dialogState.value.index++
-        } else {
-            startDialog('dialog2')
+            if (dialogState.value.index < quiz.questions.length - 1){
+                dialogState.value.index++
+            } else {
+                startDialog('dialog3')
+            }
         }
     }
 }
 
-// Configuração do Julio
+// Configuração do Bruno
 const julio = ref({
     x: 400,
     y: 300,
@@ -394,7 +401,6 @@ const julio = ref({
 
 julio.value.sprite.src = '/assets/sprites/npcs/julio/walk.png'
 
-// Funções de renderização do Julio
 function drawJulio() {
     const ctx = julioCanvas.value?.getContext('2d')
     if (!ctx || !julio.value.sprite.complete) return
@@ -439,16 +445,22 @@ function handlePlayerInteract(event) {
     const { x, y } = event.detail
     const distancia = Math.hypot(x - julio.value.x, y - julio.value.y)
     if (distancia < 100) {
-        dialogState.value.status === true ? startDialog('main') : startDialog('dialog6')
+        //startDialog('main')
+        dialogState.value.status === true || enableDialog === true ? startDialog('main') : startDialog('dialog4')
     }
 }
 
-function irParaFase2() {
-    router.push({ name: 'Preludio2' })
+function irParaFase3() {
+    router.push({ name: 'Preludio3' })
 }
 
 onMounted(() => {
     gameArea.value.focus()
+    window.dispatchEvent(new Event('update-vidas'))
+
+    if (getGameState().game.fasesConcluidas[1] === 2) {
+        dialogState.value.status = false
+    }
 
     julio.value.sprite.onload = () => {
         drawJulio()
@@ -459,8 +471,9 @@ onMounted(() => {
 
 onUnmounted(() => {
     clearInterval(julio.value.loop)
+    dialogState.value.status = true
+    enableDialog.value = true
     window.removeEventListener('player-interact', handlePlayerInteract)
-    console.log('Fase 2 desmontada')
 })
 </script>
 

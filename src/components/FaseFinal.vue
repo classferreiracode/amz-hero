@@ -105,27 +105,45 @@ const dialogConfig = {
             {'speaker': 'Ana - Guardiã das Pessoas', 'text': 'Fique. Aprenda conosco. Você ainda tem o que descobrir.'}
         ],
         onComplete: () => {
+            const gameState = getGameState()
+            const fasesConcluidas = gameState.game.fasesConcluidas || []
+
             updateGameState({
-                "player": { "vidas": 3 }
+                "game": {
+                    "fasesConcluidas": [...fasesConcluidas, 4],
+                }
             })
-            window.dispatchEvent(new Event('update-vidas'))
-            startQuiz('quiz1')
+
+            addConquista('🎉 Desafio Final')
+            showToast('🏆 Conquista!', '🎉 Desafio Final', 'conquista')
+            dialogState.value.status = false
+
+            window.dispatchEvent(new Event('mostrar-game-final2'))
         }
     },
     main3: {
         lines: [
-            {'speaker': 'Hmm... Vejo que chegou até aqui, mas ainda sem carregar nenhuma das orbs.'},
+            {'speaker': 'Ana - Guardiã das Pessoas', text: 'Hmm... Vejo que chegou até aqui, mas ainda sem carregar nenhuma das orbs.'},
             {'speaker': 'Ana - Guardiã das Pessoas', text:
                     'Você tem potencial — sem dúvida — mas sua jornada ainda não está completa'},
             {'speaker': 'Ana - Guardiã das Pessoas', 'text': 'As orbs representam quem você precisa se tornar, não apenas onde você precisa chegar.'},
             {'speaker': 'Ana - Guardiã das Pessoas', 'text': 'Volte. Explore. Construa. A AMZ espera por quem caminha com propósito.'}
         ],
         onComplete: () => {
+            const gameState = getGameState()
+            const fasesConcluidas = gameState.game.fasesConcluidas || []
+
             updateGameState({
-                "player": { "vidas": 3 }
+                "game": {
+                    "fasesConcluidas": [...fasesConcluidas, 4],
+                }
             })
-            window.dispatchEvent(new Event('update-vidas'))
-            startQuiz('quiz1')
+
+            addConquista('🎉 Desafio Final')
+            showToast('🏆 Conquista!', '🎉 Desafio Final', 'conquista')
+            dialogState.value.status = false
+
+            window.dispatchEvent(new Event('mostrar-game-final2'))
         }
     },
     dialog2: {

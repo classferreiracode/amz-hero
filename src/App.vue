@@ -38,7 +38,7 @@ import { HeartIcon} from '@heroicons/vue/24/solid'
 const route = useRoute()
 const isFase = computed(() => route.path.startsWith('/fase'))
 const isPreludio = computed(() => route.path.startsWith('/preludio'))
-const isHome = computed(() => route.path === '/')
+const isHome = computed(() => route.name === 'Intro')
 const vidas = ref(getGameState().player.vidas)
 
 watch([isFase, isPreludio, isHome], () => {

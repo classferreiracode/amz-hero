@@ -1,6 +1,6 @@
 <template>
     <div v-if="mostrar"
-         class="fixed inset-0 bg-[#002234] bg-opacity-80 z-[9999] flex flex-col items-center justify-center text-center text-white font-press gap-4">
+         class="fixed inset-0 bg-[#001E32] bg-opacity-80 z-[9999] flex flex-col items-center justify-center text-center text-white font-press gap-4">
         <img src="/assets/images/fim-orbes.png" alt="Logo HeroLift" class="mx-auto mb-4 w-92">
         <img src="/assets/images/fim.png" alt="Logo HeroLift" class="mx-auto mb-4 w-92">
 
@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue'
-import { getGameState, updateGameState } from '@/utils/gameState'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { resetGameState, updateGameState} from '@/utils/gameState'
 import { useRouter } from 'vue-router'
 
 const mostrar = ref(false)
@@ -44,7 +44,9 @@ onUnmounted(() => {
 
 function voltarInicio() {
     updateGameState({ vidas: 0 })
+    resetGameState()
     mostrar.value = false
+    bgAudio.pause()
     router.push('/')
 }
 </script>

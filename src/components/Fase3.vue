@@ -105,9 +105,9 @@ const dialogConfig = {
         lines: [
             {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Boa! Você entendeu a lógica por trás da lógica. Isso vai te levar longe'},
             {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Tome — a última Orb é sua'},
+            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Você completou o ciclo. Três orbs, três caminhos.'},
             {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Atualizei o seu HeroLift. Use a tecla "E" para ver.'},
-            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Agora, vá até a Sala do RH, a próxima fase começa là.'},
-            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Tem algumas coisas para aprender la.'}
+            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Agora, vá até a Sala do RH, a próxima fase começa là.'}
         ],
         onComplete: () => {
             const gameState = getGameState()
@@ -134,10 +134,8 @@ const dialogConfig = {
     },
     dialog3: {
         lines: [
-            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Hm... não foi dessa vez. Mas errar também é parte do processo criativo.'},
-            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Volte aqui quando estiver pronto para tentar de novo.'},
+            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Nem todo bug se resolve na primeira tentativa. Reflita e volte. O desafio estará aqui'},
             {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Por ora, vá até a Sala do RH.'},
-            {'speaker': 'Marcos - Guardião da Lógica', 'text': 'Você ainda tem o que aprender com Marcos.'},
         ],
         onComplete: () => {
             const gameState = getGameState()
@@ -158,7 +156,7 @@ const dialogConfig = {
             window.dispatchEvent(new Event('update-missao'))
             dialogState.value.status = false
         }
-    },
+    }
 }
 
 const quizConfig = {

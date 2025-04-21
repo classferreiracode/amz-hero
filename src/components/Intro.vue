@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full bg-[#002D47] rounded-xl shadow shadow-primary flex flex-col items-center justify-center gap-4 relative py-8">
+    <div
+        class="w-full bg-[#002D47] rounded-xl shadow shadow-md shadow-primary flex flex-col items-center justify-center gap-4 relative py-8">
 
         <img src="/assets/images/logo-amz-hero3.png" alt="Logo HeroLift" class="mx-auto mb-4 w-92">
         <p class="text-md font-press text-white mb-4">Escolha seu Personagem</p>
