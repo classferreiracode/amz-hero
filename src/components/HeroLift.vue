@@ -17,11 +17,16 @@
 
             <p class="text-sm mb-4"><BriefcaseIcon class="w-4 h-4 inline-block" /> Inventário:</p>
             <ul class="menu bg-base-200 hover:bg-base-300 w-full rounded-box mb-12 flex flex-col">
-                <li>
-                   <span v-for="item in inventario" class="flex gap-2 items-center justify-center">
-                    {{ item }}
-                   </span>
-                </li>
+
+                    <li>
+                       <span v-for="item in inventario" class="flex gap-2 items-center justify-center">
+                           <div class="tooltip flex gap-2 items-center justify-center" :data-tip="item.description" >
+                                <img :src="'/assets/objects/orbes/' + item.sprite" class="w-8 h-8 inline-block">
+                                {{ item.name }}
+                            </div>
+                       </span>
+                    </li>
+
             </ul>
 
             <!-- 🎵 CONTROLES DE MÚSICA -->
@@ -64,7 +69,7 @@
 <!--                </div>-->
             </div>
 
-        <!-- <button class="btn btn-primary mt-2" @click="fechar">Fechar (ESC)</button> -->
+         <button class="btn btn-error mt-2" @click="fechar">Fechar (ESC)</button>
         </div>
     </div>
 </template>
@@ -87,20 +92,16 @@ const {
 } = useMusic()
 
 window.addEventListener('play', abrir)
-
 const jobs = ref(getGameState().game.missaoAtual)
 const inventario = ref(getGameState().player.inventario)
-
-const playing = computed(() => { return getGameState().audio.isPlaying })
+const playing = ref(getGameState().audio.isPlaying)
 
 window.addEventListener('update-missao', updateMissao)
-
 function updateMissao() {
     jobs.value = getGameState().game.missaoAtual
 }
 
 window.addEventListener('update-inventario', updateInventario)
-
 function updateInventario() {
     inventario.value = getGameState().player.inventario
 }
@@ -121,7 +122,8 @@ function fechar() {
 window.addEventListener('open-hero-lift', abrir)
 
 function toggleHeroLift(e) {
-    if (!getGameState().player.hasHeroLift) return
+    if (!getGameState().player.hasHeroLift)
+        return
 
     if (e.key === 'e' || e.key === 'E') {
         if (visible.value) {

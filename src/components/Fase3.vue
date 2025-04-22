@@ -123,7 +123,12 @@ const dialogConfig = {
                 }
             })
 
-            addItemToInventory('Orbe da Sinergia')
+            addItemToInventory({
+                    id: 3,
+                    name: 'Orbe da Sinergia',
+                    description: 'Reflete a adaptabilidade, a colaboração e o trabalho em equipe, essenciais para enfrentar desafios dinâmicos.',
+                    sprite: 'sinergia.png'
+            })
             addConquista('⚡ Sinergia é a essência do trabalho em equipe')
             showToast('🧿 Orbe Adquirida! - ', 'A sinergia da DEVSquad', 'conquista')
             window.dispatchEvent(new Event('update-missao'))
@@ -166,10 +171,10 @@ const quizConfig = {
                 question: "Três desenvolvedores precisam trabalhar juntos num projeto. Um sempre diz a verdade, um sempre mente, e um responde aleatoriamente.\n" +
                     "Você faz a seguinte pergunta para os três: ‘Se eu perguntasse se você é o mentiroso, o que você responderia?\n",
                 options: [
-                    "A) O que disser SIM está dizendo a verdade.",
-                    "B) O que disser NÃO é o mentiroso",
-                    "C) Todos dirão o mesmo, então não dá pra saber.",
-                    "D) O que disser o oposto da pergunta está dizendo a verdade."
+                    "A) O que disser “não” está dizendo a verdade",
+                    "B) O que disser “sim” está mentindo",
+                    "C) O que disser “sim” é aleatório",
+                    "D) Todos responderão de forma diferente, então escolha o que parecer mais calmo"
                 ],
                 answer: 0
             }

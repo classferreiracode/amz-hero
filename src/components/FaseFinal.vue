@@ -114,11 +114,9 @@ const dialogConfig = {
                 }
             })
 
-            addConquista('🎉 Desafio Final')
-            showToast('🏆 Conquista!', '🎉 Desafio Final', 'conquista')
+            addConquista('🤔 Ainda falta alguma coisa...')
+            showToast('🏆 Conquista!', '🤔 Ainda falta alguma coisa...', 'conquista')
             dialogState.value.status = false
-
-            window.dispatchEvent(new Event('mostrar-game-final2'))
         }
     },
     main3: {
@@ -139,11 +137,10 @@ const dialogConfig = {
                 }
             })
 
-            addConquista('🎉 Desafio Final')
-            showToast('🏆 Conquista!', '🎉 Desafio Final', 'conquista')
+            addConquista('😕 O Fim???')
+            showToast('🏆 Conquista!', '😕 O Fim???', 'conquista')
             dialogState.value.status = false
 
-            window.dispatchEvent(new Event('mostrar-game-final2'))
         }
     },
     dialog2: {

@@ -2,8 +2,21 @@
   "tracks": [
     {
       "id": "1",
-      "title": "TEMA AMZ Hero - A Jornada dos 17 Anos",
-      "file": "/assets/audio/AMZ-Hero_-_A-Jornada-dos-17-Anos.mp3",
+      "title": "8-Bit The Beatles - Help!",
+      "file": "8-Bit_TheBeatles_-_Help.mp3",
+      "credits": [
+        {
+          "name": "Beatles",
+          "role": "Composer",
+          "link": "https://www.youtube.com/watch?v=DgX_JTdfB80",
+          "source": "Youtube"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "TEMA: AMZ Hero - A Jornada dos 17 Anos",
+      "file": "AMZ-Hero_-_A-Jornada-dos-17-Anos.mp3",
       "credits": [
         {
           "name": "EchoingMelody3747",
@@ -14,9 +27,9 @@
       ]
     },
     {
-      "id": "2",
+      "id": "3",
       "title": "8bit video game music",
-      "file": "/assets/audio/intro.mp3",
+      "file": "intro.mp3",
       "credits": [
         {
           "name": "Arthur Hale",
@@ -27,9 +40,9 @@
       ]
     },
     {
-      "id": "3",
+      "id": "4",
       "title": "Cruising Down 8bit Lane",
-      "file": "/assets/audio/cruising-down-8bit-lane-159615.mp3",
+      "file": "cruising-down-8bit-lane-159615.mp3",
       "credits": [
         {
           "name": "Monument Music",
@@ -40,9 +53,9 @@
       ]
     },
     {
-      "id": "4",
+      "id": "5",
       "title": "Retro 8bit happy videogame music",
-      "file": "/assets/audio/retro-8bit-happy-videogame-music-246631.mp3",
+      "file": "retro-8bit-happy-videogame-music-246631.mp3",
       "credits": [
         {
           "name": "NiKneT Art",

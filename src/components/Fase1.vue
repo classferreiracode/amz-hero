@@ -186,7 +186,12 @@ const dialogConfig = {
             })
             window.dispatchEvent(new Event('update-missao'))
             window.dispatchEvent(new Event('has-hero-lift'))
-            addItemToInventory('Orbe da Eloquência ')
+            addItemToInventory({
+                id: '1',
+                name: 'Orbe da Eloquência',
+                description: 'Representa a comunicação eficaz, a clareza na transmissão de ideias e a capacidade de envolver tanto clientes quanto a equipe.',
+                sprite: 'eloquencia.png'
+            })
             addConquista('🧿 Orbe Adquirida! - A Eloquência do Fundador')
             showToast('🏆 Conquista!', '🧿 Orbe Adquirida! - A Eloquência do Fundador', 'conquista')
             dialogState.value.status = false
@@ -399,7 +404,7 @@ function drawBruno() {
     if (!ctx || !bruno.value.sprite.complete) return
 
     const frameWidth = 64
-    const frameHeight = 64
+    const frameHeight = 65
     const scale = 2
 
     ctx.clearRect(0, 0, 128, 128)

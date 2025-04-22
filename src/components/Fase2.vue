@@ -122,7 +122,12 @@ const dialogConfig = {
                 }
             })
 
-            addItemToInventory('Orbe da Criação')
+            addItemToInventory({
+                id: 2,
+                name: 'Orbe da Criação',
+                description: 'Simboliza a criatividade e inovação, incentivando o pensamento fora da caixa para criações impactantes.',
+                sprite: 'criacao.png'
+            })
             addConquista('A Criação do Arquiteto')
             showToast('🧿 Orbe Adquirida! - ', 'A Criação do Arquiteto', 'conquista')
             window.dispatchEvent(new Event('update-missao'))
