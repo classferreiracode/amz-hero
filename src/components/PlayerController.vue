@@ -1,6 +1,8 @@
 <template>
+        
     <canvas id="playerCanvas" width="128" height="128" class="absolute z-40"
-            :style="{ left: player.x + 'px', top: player.y + 'px' }"></canvas>
+                :style="{ left: player.x + 'px', top: player.y + 'px' }"></canvas>
+
 </template>
 
 <script setup>
@@ -74,6 +76,15 @@ function updatePosition(timestamp) {
         moved = true
     }
 
+    // Limitar dentro do mapa (exemplo 640x640)
+    const MAP_WIDTH = 640
+    const MAP_HEIGHT = 640
+    const PLAYER_WIDTH = SPRITE_WIDTH * 2
+    const PLAYER_HEIGHT = SPRITE_HEIGHT * 2
+
+    player.value.x = Math.max(0, Math.min(player.value.x, MAP_WIDTH - PLAYER_WIDTH))
+    player.value.y = Math.max(0, Math.min(player.value.y, MAP_HEIGHT - PLAYER_HEIGHT))
+
     if (moved) {
         if (timestamp - lastFrameTime > frameInterval) {
             frame = (frame + 1) % 4
@@ -90,6 +101,7 @@ function updatePosition(timestamp) {
 
     requestAnimationFrame(updatePosition)
 }
+
 
 function handleKeyDown(e) {
     keys[e.key] = true
