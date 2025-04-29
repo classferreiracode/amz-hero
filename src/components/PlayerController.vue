@@ -55,6 +55,8 @@ function draw() {
 
 function updatePosition(timestamp) {
     let moved = false
+    let bateuNaBorda = false
+
     if (keys['w'] || keys['ArrowUp']) {
         player.value.y -= speed
         direction = 'up'
@@ -76,14 +78,32 @@ function updatePosition(timestamp) {
         moved = true
     }
 
-    // Limitar dentro do mapa (exemplo 640x640)
     const MAP_WIDTH = 640
     const MAP_HEIGHT = 640
     const PLAYER_WIDTH = SPRITE_WIDTH * 2
     const PLAYER_HEIGHT = SPRITE_HEIGHT * 2
 
-    player.value.x = Math.max(0, Math.min(player.value.x, MAP_WIDTH - PLAYER_WIDTH))
-    player.value.y = Math.max(0, Math.min(player.value.y, MAP_HEIGHT - PLAYER_HEIGHT))
+    // Verifica limites e detecta colisão com borda
+    if (player.value.x < 0) {
+        player.value.x = 0
+        bateuNaBorda = true
+    }
+    if (player.value.y < 0) {
+        player.value.y = 0
+        bateuNaBorda = true
+    }
+    if (player.value.x > MAP_WIDTH - PLAYER_WIDTH) {
+        player.value.x = MAP_WIDTH - PLAYER_WIDTH
+        bateuNaBorda = true
+    }
+    if (player.value.y > MAP_HEIGHT - PLAYER_HEIGHT) {
+        player.value.y = MAP_HEIGHT - PLAYER_HEIGHT
+        bateuNaBorda = true
+    }
+
+    if (bateuNaBorda) {
+        vibrarCanvas()
+    }
 
     if (moved) {
         if (timestamp - lastFrameTime > frameInterval) {
@@ -100,6 +120,21 @@ function updatePosition(timestamp) {
     }
 
     requestAnimationFrame(updatePosition)
+}
+
+
+function vibrarCanvas() {
+    const playerCanvas = document.getElementById('playerCanvas')
+    playerCanvas.style.transition = 'transform 0.1s'
+    playerCanvas.style.transform = 'translateX(2px)'
+
+    setTimeout(() => {
+        playerCanvas.style.transform = 'translateX(-2px)'
+    }, 100)
+
+    setTimeout(() => {
+        playerCanvas.style.transform = 'translateX(0px)'
+    }, 200)
 }
 
 
