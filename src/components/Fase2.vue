@@ -58,6 +58,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getGameState, updateGameState, ganharXP, addConquista, addItemToInventory } from '@/utils/gameState'
+import { createInventoryItem } from '@/data/items'
 import { QuestionMarkCircleIcon } from "@heroicons/vue/24/solid/index.js";
 
 const router = useRouter()
@@ -123,10 +124,7 @@ const dialogConfig = {
             })
 
             addItemToInventory({
-                id: 2,
-                name: 'Orbe da Criação',
-                description: 'Simboliza a criatividade e inovação, incentivando o pensamento fora da caixa para criações impactantes.',
-                sprite: 'criacao.png'
+                ...createInventoryItem('orbe-criacao')
             })
             addConquista('A Criação do Arquiteto')
             showToast('🧿 Orbe Adquirida! - ', 'A Criação do Arquiteto', 'conquista')

@@ -1,6 +1,7 @@
 <template>
     <div class="w-screen h-[100vh] bg-black/90 flex flex-col items-center justify-center gap-4 pb-12">
         <CommandBox v-if="isFase" />
+        <SkillBar v-if="isFase" />
         <div class="relative" style="width: 640px; height: 640px;">
             <GameOverOverlay />
             <GameFinal1 />
@@ -30,6 +31,7 @@ import GameOverOverlay from '@/components/GameOverOverlay.vue'
 import GameFinal1 from "@/components/GameFinal1.vue";
 import GameFinal2 from "@/components/GameFinal2.vue";
 import CommandBox from '@/components/CommandBox.vue'
+import SkillBar from '@/components/HUD/SkillBar.vue'
 import { useRoute } from 'vue-router'
 import { computed, ref, watch } from 'vue'
 import { getGameState, resetGameState } from '@/utils/gameState'

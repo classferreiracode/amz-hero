@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { getGameState } from '@/utils/gameState'
+import { acionarSkillPorAtalho, getGameState } from '@/utils/gameState'
 
 const state = getGameState()
 
@@ -152,6 +152,10 @@ function handleKeyDown(e) {
 
     if (e.key === 'e' && state.hasHeroLift) {
         window.dispatchEvent(new CustomEvent('open-hero-lift'))
+    }
+
+    if (['1', '2', '3', '4', 'q', 'f'].includes(e.key.toLowerCase())) {
+        acionarSkillPorAtalho(e.key)
     }
 }
 

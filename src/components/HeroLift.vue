@@ -20,9 +20,12 @@
 
                     <li>
                        <span v-for="item in inventario" class="flex gap-2 items-center justify-center">
-                           <div class="tooltip flex gap-2 items-center justify-center" :data-tip="item.description" >
+                           <div class="tooltip flex gap-2 items-center justify-center" :data-tip="tooltipFor(item)">
                                 <img :src="'/assets/objects/orbes/' + item.sprite" class="w-8 h-8 inline-block">
-                                {{ item.name }}
+                                <div class="text-left">
+                                    <p class="font-semibold text-white leading-none">{{ item.name }}</p>
+                                    <p class="text-[10px] text-gray-200 leading-none">{{ item.rarity || 'comum' }} · Lv {{ item.levelRequirement || 1 }}</p>
+                                </div>
                             </div>
                        </span>
                     </li>
@@ -104,6 +107,12 @@ function updateMissao() {
 window.addEventListener('update-inventario', updateInventario)
 function updateInventario() {
     inventario.value = getGameState().player.inventario
+}
+
+const tooltipFor = (item) => {
+    const habilidade = item.skillUnlocked ? `Habilidade: ${item.skillUnlocked.name} (tecla ${item.skillUnlocked.hotkey})` : 'Nenhuma habilidade atrelada'
+    const pontos = item.skillPoints ? `+${item.skillPoints} pts de skill` : 'Sem pontos extras'
+    return `${item.description || 'Item misterioso'}\n${item.effect || ''}\n${pontos}\n${habilidade}`
 }
 
 
