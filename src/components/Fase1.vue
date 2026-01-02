@@ -59,6 +59,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getGameState, updateGameState, ganharXP, addConquista, addItemToInventory } from '@/utils/gameState'
+import { createInventoryItem } from '@/data/items'
 import { QuestionMarkCircleIcon } from "@heroicons/vue/24/solid/index.js";
 
 const router = useRouter()
@@ -187,10 +188,7 @@ const dialogConfig = {
             window.dispatchEvent(new Event('update-missao'))
             window.dispatchEvent(new Event('has-hero-lift'))
             addItemToInventory({
-                id: '1',
-                name: 'Orbe da Eloquência',
-                description: 'Representa a comunicação eficaz, a clareza na transmissão de ideias e a capacidade de envolver tanto clientes quanto a equipe.',
-                sprite: 'eloquencia.png'
+                ...createInventoryItem('orbe-eloquencia')
             })
             addConquista('🧿 Orbe Adquirida! - A Eloquência do Fundador')
             showToast('🏆 Conquista!', '🧿 Orbe Adquirida! - A Eloquência do Fundador', 'conquista')

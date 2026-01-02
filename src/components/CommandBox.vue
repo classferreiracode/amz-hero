@@ -7,6 +7,7 @@
             <li><b>Espaço</b> ou <b>Enter</b>: interagir</li>
             <li v-if="heroLift"><b>E</b>: abrir HeroLift</li>
             <li v-if="heroLift"><b>Esc</b>: sair</li>
+            <li><b>1, 2, 3</b>: ativar habilidades desbloqueadas</li>
         </ul>
     </div>
 </template>

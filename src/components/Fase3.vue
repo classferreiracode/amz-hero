@@ -58,6 +58,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { getGameState, updateGameState, ganharXP, addConquista, addItemToInventory } from '@/utils/gameState'
+import { createInventoryItem } from '@/data/items'
 import { QuestionMarkCircleIcon } from "@heroicons/vue/24/solid/index.js";
 
 const router = useRouter()
@@ -124,10 +125,7 @@ const dialogConfig = {
             })
 
             addItemToInventory({
-                    id: 3,
-                    name: 'Orbe da Sinergia',
-                    description: 'Reflete a adaptabilidade, a colaboração e o trabalho em equipe, essenciais para enfrentar desafios dinâmicos.',
-                    sprite: 'sinergia.png'
+                    ...createInventoryItem('orbe-sinergia')
             })
             addConquista('⚡ Sinergia é a essência do trabalho em equipe')
             showToast('🧿 Orbe Adquirida! - ', 'A sinergia da DEVSquad', 'conquista')

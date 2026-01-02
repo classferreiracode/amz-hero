@@ -1,6 +1,9 @@
+import { createInventoryItem, getItemDefinition } from '@/data/items'
+
 const GAME_STATE_KEY = 'gameState'
 
 // Estado inicial padrão
+
 const defaultState = {
     "player": {
         "name": null,
@@ -29,6 +32,11 @@ const defaultState = {
         "isPlaying": false,
         "volume": 0.6,
         "isMuted": false
+    },
+    "skills": {
+        "pontos": 0,
+        "progresso": {},
+        "catalogo": {}
     }
 }
 
@@ -63,8 +71,12 @@ export function ganharXP(quantidade) {
 
 export function addItemToInventory(item) {
     const state = getGameState()
-    state.player.inventario.push(item)
+    const itemDefinition = createInventoryItem(item.id || item.name)
+    const mergedItem = { ...itemDefinition, ...item }
+
+    state.player.inventario.push(mergedItem)
     updateGameState(state)
+    aplicarRecompensasDeItem(mergedItem)
     window.dispatchEvent(new Event('update-inventario'))
 }
 
@@ -78,6 +90,109 @@ export function addConquista(conquista) {
     const state = getGameState()
     state.game.conquistas.push(conquista)
     updateGameState(state)
+}
+
+export function getSkillsState() {
+    const state = getGameState()
+    if (!state.skills) {
+        state.skills = { ...defaultState.skills }
+        updateGameState(state)
+    }
+    return state.skills
+}
+
+export function adicionarPontosDeSkill(skillId, quantidade, origem) {
+    const skills = getSkillsState()
+    skills.pontos = (skills.pontos || 0) + quantidade
+
+    if (!skills.progresso[skillId]) {
+        skills.progresso[skillId] = {
+            pontos: 0,
+            desbloqueado: false,
+            cooldownAte: 0,
+            ultimaOrigem: null
+        }
+    }
+
+    skills.progresso[skillId].pontos += quantidade
+    skills.progresso[skillId].ultimaOrigem = origem?.name || origem?.id || 'desconhecido'
+
+    updateGameState({ skills })
+    window.dispatchEvent(new CustomEvent('skills-updated', { detail: { skillId, quantidade } }))
+}
+
+export function desbloquearSkill(skillMeta) {
+    const skills = getSkillsState()
+    const existente = skills.catalogo[skillMeta.id]
+    skills.catalogo[skillMeta.id] = { ...skillMeta }
+
+    if (!skills.progresso[skillMeta.id]) {
+        skills.progresso[skillMeta.id] = { pontos: 0, desbloqueado: true, cooldownAte: 0 }
+    } else {
+        skills.progresso[skillMeta.id].desbloqueado = true
+    }
+
+    updateGameState({ skills })
+
+    if (!existente) {
+        window.dispatchEvent(new CustomEvent('skill-unlocked', { detail: skillMeta }))
+    }
+}
+
+export function usarSkill(skillId) {
+    const skills = getSkillsState()
+    const progress = skills.progresso[skillId]
+    const meta = skills.catalogo[skillId]
+
+    if (!progress || !meta || !progress.desbloqueado) {
+        return { sucesso: false, motivo: 'locked' }
+    }
+
+    const agora = Date.now()
+    if (progress.cooldownAte && progress.cooldownAte > agora) {
+        const restante = Math.ceil((progress.cooldownAte - agora) / 1000)
+        return { sucesso: false, motivo: 'cooldown', restante }
+    }
+
+    const cooldownMs = (meta.cooldownSeconds || 8) * 1000
+    progress.cooldownAte = agora + cooldownMs
+    updateGameState({ skills })
+    window.dispatchEvent(new CustomEvent('skill-used', { detail: { skillId, cooldownMs } }))
+
+    return { sucesso: true, cooldownMs }
+}
+
+export function acionarSkillPorAtalho(key) {
+    const skills = getSkillsState()
+    const skill = Object.values(skills.catalogo || {}).find(
+        (habilidade) => habilidade.hotkey?.toLowerCase() === key.toLowerCase()
+    )
+
+    if (!skill) {
+        return { sucesso: false }
+    }
+
+    const resultado = usarSkill(skill.id)
+
+    if (resultado.sucesso) {
+        window.dispatchEvent(new CustomEvent('show-toast', {
+            detail: {
+                title: `⚡ ${skill.name}`,
+                message: skill.effect,
+                type: 'info'
+            }
+        }))
+    } else if (resultado.motivo === 'cooldown') {
+        window.dispatchEvent(new CustomEvent('show-toast', {
+            detail: {
+                title: `⏳ ${skill.name} em recarga`,
+                message: `Aguarde ${resultado.restante}s para usar novamente.`,
+                type: 'info'
+            }
+        }))
+    }
+
+    return { ...resultado, habilidade: skill }
 }
 
 function xpParaNivel(nivel) {
@@ -116,4 +231,36 @@ export function updateGameState(updates) {
 // Reset total do progresso (se necessário)
 export function resetGameState() {
     localStorage.setItem(GAME_STATE_KEY, JSON.stringify(defaultState))
+}
+
+function aplicarRecompensasDeItem(item) {
+    const definicao = getItemDefinition(item.id || item.name)
+    if (!definicao || !definicao.skillUnlocked) {
+        return
+    }
+
+    const state = getGameState()
+    const nivelAtual = state.player.level || 1
+    const skill = definicao.skillUnlocked
+
+    adicionarPontosDeSkill(skill.id, definicao.skillPoints || 1, definicao)
+
+    window.dispatchEvent(new CustomEvent('show-toast', {
+        detail: {
+            title: '✨ Pontos de Skill!',
+            message: `+${definicao.skillPoints || 1} pontos com ${definicao.name}.`,
+            type: 'info'
+        }
+    }))
+
+    if (nivelAtual >= definicao.levelRequirement) {
+        desbloquearSkill({ ...skill, rarity: definicao.rarity, levelRequirement: definicao.levelRequirement })
+        window.dispatchEvent(new CustomEvent('show-toast', {
+            detail: {
+                title: '🆕 Habilidade desbloqueada!',
+                message: `${skill.name} liberada (tecla ${skill.hotkey}).`,
+                type: 'item'
+            }
+        }))
+    }
 }
