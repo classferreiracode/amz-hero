@@ -65,7 +65,7 @@ export function ganharXP(quantidade) {
     }
 
     state.level = proximoNivel
-    updateGameState(state)
+    updateGameState({ player: state })
     window.dispatchEvent(new Event('update-xp'))
 }
 
